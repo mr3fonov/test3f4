@@ -18,6 +18,11 @@ def register_handlers(bot: TeleBot):
 
     def process_name_step(message):
         user_data['name'] = message.text
+        msg = bot.send_message(message.chat.id, "Сколько вам лет?")
+        bot.register_next_step_handler(msg, process_age_step)
+
+    def process_age_step(message):
+        user_data['age'] = message.text
         msg = bot.send_message(message.chat.id, "Введите ваш телефон:")
         bot.register_next_step_handler(msg, process_phone_step)
 

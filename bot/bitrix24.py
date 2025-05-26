@@ -10,7 +10,7 @@ def send_to_bitrix24(data):
             'TITLE': f"Заказ: {data['service']}",
             'NAME': data['name'],
             'PHONE': [{'VALUE': data['phone'], 'VALUE_TYPE': 'WORK'}],
-            'COMMENTS': f"Заказанная услуга: {data['service']}"
+            'COMMENTS': f"Заказанная услуга: {data['service']}\nВозраст клиента: {data['age']}"
         }
     }
     # Отправка данных в Bitrix24
